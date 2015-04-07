@@ -7,33 +7,41 @@ var moviename ="";
 var movieTitle=[];
 
 
-function Movie(movieTitle, movieGenre) {
-        this.movieTitle = movieTitle;
-        this.movieGenre = movieGenre;
+function fetchMovieRecommendations(callback) {
+    var baseUrl = "http://www.tastekid.com/api/";
+    var type ="movie";
+    var key = "131520-ReadAMov-GLLWO1NB";
+
+    var url = baseUrl + "/similar?q=";
+    url += encodeURIComponent(query)+"&type="+type+"&k="+key;
+        return $.ajax({
+            dataType: 'jsonp',
+    url: url,
+    async: false
+        })
+        .done(callback)
+        .fail(function(jqXHR, textStatus, errorThrown) {
+    });
 };
 
-function fetchMovieRecommendations(callback) {
-			var baseUrl = "http://www.tastekid.com/api/";
-			var type 	=	"movie";
-			var key = "131520-ReadAMov-GLLWO1NB";
-			console.log("START Recommendation (Movie)");
-
-			var url = baseUrl + "/similar?q=";
-			url += encodeURIComponent(query)+"&type="+type+"&k="+key;
-     return $.ajax({
-        	dataType: 'jsonp',
-		url: url,
-		async: false
-    })
-    .done(callback)
-    .fail(function(jqXHR, textStatus, errorThrown) {
-        // Handle error
-    });
-}
+/**
+ * Callback for fetchMovieRecommendations
+ * @param  uri {               movieArray Contains all movie info
+ * @return {callback in callback}       Calls on success fetchMovieInformation which has a callback to movieArray.push(d); -JK
+ */
+fetchMovieRecommendations(function(data) {
+    movieArray = [];
+    for(index = 0; index < 6; index++) {
+        currentTitle = data["Similar"].Results[index].Name;
+        fetchMovieInformation(function(d) {
+            movieArray.push(d);
+        });
+    }
+});
 
 function fetchMovieInformation(callback) {
 var baseUrl = "http://www.omdbapi.com/"
-var url = baseUrl+"/?t="+encodeURIComponent(moviename.Name)+"&type=movie&r=json&tomatoes=true";
+var url = baseUrl+"/?t="+encodeURIComponent(currentTitle)+"&type=movie&r=json&tomatoes=true";
         return $.ajax({
         dataType: 'json',
 		url: url,
@@ -45,6 +53,8 @@ var url = baseUrl+"/?t="+encodeURIComponent(moviename.Name)+"&type=movie&r=json&
     });
 }
 
+
+/* Books below this line -JK */
 function fetchBookRecommendations(callback) {
 
 var baseUrl = "http://www.tastekid.com/api/"
@@ -66,8 +76,6 @@ var baseUrl = "http://www.tastekid.com/api/"
     });
 }
 
-
-
 function fetchBookInformation(callback) {
 var baseUrl = "https://www.goodreads.com/book/"
 var titleBook = "taken"
@@ -85,25 +93,3 @@ console.log(url);
         // Handle error
     });
 }
-
-function makeMovieArray() {
-	console.log("START");
-	console.log("START Recommendation (fetching detailistic Movie Information about Recommended Movies)");
-	fetchMovieRecommendations(function(movieRecommendation) {
-
-for	(index = 0; index < 6; index++) {
-
-	moviename = movieRecommendation["Similar"].Results[index];	
- 	
- 	fetchMovieInformation(function(MovieInformation) {
-	
-	movieTitle.push(MovieInformation)
-		});
-	};
-  });	
-console.log("FINISHED making Recommendation for Movies");
-console.log(movieTitle);
-}
-
-
-

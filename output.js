@@ -7,8 +7,7 @@ $(document).ready(function () {
    
 
 
-    fetchMovieInformation(function(data) {
-    makeMovieArray();
+    fetchMovieRecommendations(function(data) {
     
     var data = {
     books: [
