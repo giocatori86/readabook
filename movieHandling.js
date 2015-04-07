@@ -12,8 +12,6 @@ function Movie(movieTitle, movieGenre) {
         this.movieGenre = movieGenre;
 };
 
-
-
 function fetchMovieRecommendations(callback) {
 			var baseUrl = "http://www.tastekid.com/api/";
 			var type 	=	"movie";
@@ -99,7 +97,7 @@ for	(index = 0; index < 6; index++) {
  	
  	fetchMovieInformation(function(MovieInformation) {
 	
-	movieTitle.push(MovieInformation.Title)
+	movieTitle.push(MovieInformation)
 		});
 	};
   });	
