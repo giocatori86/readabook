@@ -8,7 +8,9 @@ $(document).ready(function () {
 
 
     fetchMovieRecommendations(function(data) {
-    
+    console.log(movieArray[0]);
+
+
     var data = {
     books: [
     {   nameOfBook_home:data.Plot,
