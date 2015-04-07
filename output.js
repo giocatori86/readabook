@@ -7,7 +7,7 @@ $(document).ready(function () {
    
 
 
-    fetchMovieRecommendations(function(data) {
+    
     console.log(movieArray[0]);
 
 
@@ -111,7 +111,7 @@ $(document).ready(function () {
         posterOfMovie_crime: "Christophe",
         posterOf_history: "Christophe",
     }
-    ]};
+    
     
 
     html = Mustache.render(template, data);
