@@ -16,7 +16,7 @@ function fetchMovieRecommendations(callback) {
 			var baseUrl = "http://www.tastekid.com/api/";
 			var type 	=	"movie";
 			var key = "131520-ReadAMov-GLLWO1NB";
-			console.log("START Recommendation (movie)");
+			console.log("START Recommendation (Movie)");
 
 			var url = baseUrl + "/similar?q=";
 			url += encodeURIComponent(query)+"&type="+type+"&k="+key;
