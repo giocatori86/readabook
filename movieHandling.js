@@ -88,7 +88,7 @@ console.log(url);
 
 function makeMovieArray() {
 	console.log("START");
-	console.log("START Recommendation (fetching Movie Information about Recommended Movies)");
+	console.log("START Recommendation (fetching detailistic Movie Information about Recommended Movies)");
 	fetchMovieRecommendations(function(movieRecommendation) {
 
 for	(index = 0; index < 6; index++) {
