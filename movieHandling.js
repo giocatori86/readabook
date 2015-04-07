@@ -29,15 +29,7 @@ function fetchMovieRecommendations(callback) {
  * @param  uri {               movieArray Contains all movie info
  * @return {callback in callback}       Calls on success fetchMovieInformation which has a callback to movieArray.push(d); -JK
  */
-fetchMovieRecommendations(function(data) {
-    movieArray = [];
-    for(index = 0; index < 6; index++) {
-        currentTitle = data["Similar"].Results[index].Name;
-        fetchMovieInformation(function(d) {
-            movieArray.push(d);
-        });
-    }
-});
+
 
 function fetchMovieInformation(callback) {
 var baseUrl = "http://www.omdbapi.com/"
