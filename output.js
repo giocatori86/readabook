@@ -3,12 +3,6 @@ $(document).ready(function () {
 
     var output = $("#output");    
     var template = $("#test2").html();
-    
-   
-
-
-    
-    console.log(movieArray[0]);
 
 
     var data = {
@@ -111,10 +105,10 @@ $(document).ready(function () {
         posterOfMovie_crime: "Christophe",
         posterOf_history: "Christophe",
     }
-    
+    ]};
     
 
     html = Mustache.render(template, data);
     output.append(html);
-    });
+    
 });
