@@ -41,6 +41,8 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="mustache.js"></script>
     <script type="text/javascript" src="output.js"></script>
+    <script type = "text/javascript" src="movieHandling.js"></script>
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,8 @@
                     <li class="page-scroll">
                         <a href="#Books">Find Books</a>
                     <li class="page-scroll">
+                        <a href="#Movies">Find Movies</a>
+                    <li class="page-scroll">
                         <a href="#About">About</a>
                     </li>
                   <li class="page-scroll">
@@ -122,7 +126,7 @@
         </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
+<!-- Portfolio Grid Section -->
     <section id="Books">
         <div class="container">
             <div class="row">
@@ -184,6 +188,82 @@
                 </div>
                 <div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Portfolio Grid Section -->
+    <section id="Movies">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Movies</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal11" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal21" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal31" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal41" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal51" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal61" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -343,7 +423,7 @@
                         <div class="modal-body">
                             <h2>{{nameOfBook_home}}</h2>
                             <hr class="star-primary">
-                            <img src="http://i.ytimg.com/vi/ehjTS6AhMJ8/maxresdefault.jpg" class="img-responsive img-centered" alt="">
+                            <img src= {{posterOfBook_home}} class="img-responsive img-centered" alt="">
 
                             <p>{{explanationOfBook_home}} </p>
                             <ul class="list-inline item-details">
@@ -545,8 +625,233 @@
             </div>
         </div>
     </div>
+
+
+<!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_home}}</h2>
+                            <hr class="star-primary">
+                            <img src= {{posterOfMovie_home}} class="img-responsive img-centered" alt="">
+
+                            <p>{{explanationOfMovie_home}} </p>
+                            <ul class="list-inline item-details">
+                                <li>Author :
+                                    <strong>{{authorOfMovie_home}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{DateOfBook_home}}</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                    <strong>{{themeOfMovie_home}}
+                                    </strong>
+                        </div>
+                        <img src="img/4star.png" class="img-responsive img-centered" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal21" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+             <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_holiday}}</h2>
+                            <hr class="star-primary">
+                            <img src={{posterOfMovie_holiday}} class="img-responsive img-centered" alt="">
+                            <p>{{explanationOfMovie_holiday}} </p>
+                            <ul class="list-inline item-details">
+                                <li>Author:
+                                    <strong>{{authorOfMovie_holiday}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{DateOfMovie_holiday}}</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                    <strong>{{themeOfMovie_holiday}}
+                                    </strong>
+                        </div>
+                        <img src="img/5star.png" class="img-responsive img-centered" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal31" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+             <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_adventure}}</h2>
+                            <hr class="star-primary">
+                            <img src={{posterOfMovie_adventure}} class="img-responsive img-centered" alt="">
+                            <p>{{explanationOfMovie_adventure}}</p>
+                            <ul class="list-inline item-details">
+                                <li>Author
+                                    <strong>{{authorOfMovie_adventure}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{DateOfMovie_adventure</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                    <strong>{{themeOfMovie_adventure}}
+                                    </strong>
+                        </div>
+                         <img src="img/4star.png" class="img-responsive img-centered" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal41" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+             <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_advance}}</h2>
+                            <hr class="star-primary">
+                            <img src={{posterOfMovie_home}} class="img-responsive img-centered" alt="">
+                            <p>{{explanationOfMovie_advance}}</p>
+                            <ul class="list-inline item-details">
+                                <li>Author:
+                                    <strong>{{authorOfMovie_advance}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{DateOfMovie_advance}}</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                    <strong>{{themeOfMovie_advance}}
+                                    </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal51" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+          <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_crime}}</h2>
+                            <hr class="star-primary">
+                            <img src={{posterOfMovie_crime}} class="img-responsive img-centered" alt="">
+                            <p>{{explanationOfMovie_crime}}</p>
+                            <ul class="list-inline item-details">
+                                <li>Author:
+                                    <strong>{{explanationOfMovie_crime}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{DateOfMovie_crime}}</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                    <strong>{{themeOfMovie_crime}}
+                                    </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal61" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{nameOfMovie_history}}</h2>
+                            <hr class="star-primary">
+                            <img src="{{posterOfMovie_history}} class="img-responsive img-centered" alt="">
+
+                    
+                           {{explanationOfMovie_history}}
+                            <ul class="list-inline item-details">
+                                <li>Movie:
+                                    <strong>{{authorOfMovie_history}}
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{DateOfMovie_history}}</a>
+                                    </strong>
+                                </li>
+                                <li>Theme:
+                                
+                                    <strong>{{themeOfMovie_history}}
+                                    </strong>
+                                    
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
  {{/books}}
+
+
 </script>
+
 
 
 <div id="output"></div>
