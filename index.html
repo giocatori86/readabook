@@ -41,6 +41,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/latest/jquery.js"></script>
     <script type="text/javascript" src="mustache.js"></script>
     <script type="text/javascript" src="output.js"></script>
+    <script src="js/xml2json.min.js"></script>
+    
 
 
 
@@ -650,14 +652,17 @@
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong>{{DateOfBook_home}}</a>
+                                    <strong>{{DateOfMovie_home}}</a>
                                     </strong>
                                 </li>
                                 <li>Theme:
                                     <strong>{{themeOfMovie_home}}
                                     </strong>
+                                      </li>
+                                </ul>
+                                <hr class="star-primary">
+                            <h2>{{ratingOfMovie_home}}</h2>   
                         </div>
-                        <img src="img/4star.png" class="img-responsive img-centered" alt="">
                     </div>
                 </div>
             </div>
@@ -691,8 +696,11 @@
                                 <li>Theme:
                                     <strong>{{themeOfMovie_holiday}}
                                     </strong>
+                                      </li>
+                                </ul>
+                                <hr class="star-primary">
+                            <h2>{{ratingOfMovie_holiday}}</h2>   
                         </div>
-                        <img src="img/5star.png" class="img-responsive img-centered" alt="">
                     </div>
                 </div>
             </div>
@@ -715,19 +723,23 @@
                             <img src={{posterOfMovie_adventure}} class="img-responsive img-centered" alt="">
                             <p>{{explanationOfMovie_adventure}}</p>
                             <ul class="list-inline item-details">
-                                <li>Author
+                                <li>Author:
                                     <strong>{{authorOfMovie_adventure}}
                                     </strong>
+                                    <br>
                                 </li>
                                 <li>Date:
-                                    <strong>{DateOfMovie_adventure</a>
+                                    <strong>{{DateOfMovie_adventure}}</a>
                                     </strong>
                                 </li>
                                 <li>Theme:
                                     <strong>{{themeOfMovie_adventure}}
                                     </strong>
+                                      </li>
+                                </ul>
+                                <hr class="star-primary">
+                            <h2>{{ratingOfMovie_adventure}}</h2>   
                         </div>
-                         <img src="img/4star.png" class="img-responsive img-centered" alt="">
                     </div>
                 </div>
             </div>
@@ -747,7 +759,7 @@
                         <div class="modal-body">
                             <h2>{{nameOfMovie_advance}}</h2>
                             <hr class="star-primary">
-                            <img src={{posterOfMovie_home}} class="img-responsive img-centered" alt="">
+                            <img src={{posterOfMovie_advance}} class="img-responsive img-centered" alt="">
                             <p>{{explanationOfMovie_advance}}</p>
                             <ul class="list-inline item-details">
                                 <li>Author:
@@ -761,6 +773,10 @@
                                 <li>Theme:
                                     <strong>{{themeOfMovie_advance}}
                                     </strong>
+                                </li>
+                                </ul>
+                                <hr class="star-primary">
+                            <h2>{{ratingOfMovie_advance}}</h2>    
                         </div>
                     </div>
                 </div>
@@ -785,7 +801,7 @@
                             <p>{{explanationOfMovie_crime}}</p>
                             <ul class="list-inline item-details">
                                 <li>Author:
-                                    <strong>{{explanationOfMovie_crime}}
+                                    <strong>{{authorOfMovie_crime}}
                                     </strong>
                                 </li>
                                 <li>Date:
@@ -795,6 +811,10 @@
                                 <li>Theme:
                                     <strong>{{themeOfMovie_crime}}
                                     </strong>
+                                 </li>
+                                 </ul>
+                                 <hr class="star-primary">
+                            <h2>{{ratingOfMovie_crime}}</h2>   
                         </div>
                     </div>
                 </div>
@@ -809,18 +829,16 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+           <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>{{nameOfMovie_history}}</h2>
                             <hr class="star-primary">
-                            <img src="{{posterOfMovie_history}} class="img-responsive img-centered" alt="">
-
-                    
-                           {{explanationOfMovie_history}}
+                            <img src={{posterOfMovie_history}} class="img-responsive img-centered" alt="">
+                            <p>{{explanationOfMovie_history}}</p>
                             <ul class="list-inline item-details">
-                                <li>Movie:
+                                <li>Author:
                                     <strong>{{authorOfMovie_history}}
                                     </strong>
                                 </li>
@@ -829,14 +847,12 @@
                                     </strong>
                                 </li>
                                 <li>Theme:
-                                
                                     <strong>{{themeOfMovie_history}}
                                     </strong>
-                                    
-
-
                                 </li>
                             </ul>
+                             <hr class="star-primary">
+                            <h2>{{ratingOfMovie_history}}</h2>
                         </div>
                     </div>
                 </div>
