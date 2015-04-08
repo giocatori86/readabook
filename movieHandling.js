@@ -1,5 +1,5 @@
 var query = prompt("Give name of like", "Harry Potter");
-
+jQuery.ajaxSetup({async:false});
 function fetchMovieRecommendations(callback) {
 	var baseUrl = "http://www.tastekid.com/api/";
 	var type ="movies";

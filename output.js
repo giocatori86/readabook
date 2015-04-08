@@ -1,18 +1,20 @@
 $(document).ready(function () {
     fetchBookRecommendations(function(da) {
         bookArray = [];
+        movieArray = [];
+        jsonObj="";
         var x2js = new X2JS();
         for(index = 0; index < 7; index++) {
             currentTitle = da["Similar"].Results[index].Name;
-            fetchBookInformation(function(da) {
-                var jsonObj = x2js.xml2json(da);
+            fetchBookInformation(function(data) {
+                jsonObj = x2js.xml2json(data);
                 bookArray.push(jsonObj["query"].results.GoodreadsResponse.search.results.work[0]);
-                
+
             });
         }
-        
+    
         fetchMovieRecommendations(function(data) {
-            movieArray = [];
+            
             for(index = 0; index < 6; index++) {
                 currentTitle = data["Similar"].Results[index].Name;
                 fetchMovieInformation(function(d) {
