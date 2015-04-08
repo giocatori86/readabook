@@ -2,35 +2,35 @@ $(document).ready(function () {
     fetchBookRecommendations(function(da) {
         bookArray = [];
         var x2js = new X2JS();
-         for(index = 0; index < 7; index++) {
+        for(index = 0; index < 7; index++) {
             currentTitle = da["Similar"].Results[index].Name;
             fetchBookInformation(function(da) {
-            var jsonObj = x2js.xml2json(da);
-            bookArray.push(jsonObj["query"].results.GoodreadsResponse.search.results.work[0]);
-           
+                var jsonObj = x2js.xml2json(da);
+                bookArray.push(jsonObj["query"].results.GoodreadsResponse.search.results.work[0]);
+                
             });
         }
         
-    fetchMovieRecommendations(function(data) {
-        movieArray = [];
-        for(index = 0; index < 6; index++) {
-            currentTitle = data["Similar"].Results[index].Name;
-            fetchMovieInformation(function(d) {
-                movieArray.push(d);
-            });
-        }
-        buildTemplate(movieArray,bookArray);
+        fetchMovieRecommendations(function(data) {
+            movieArray = [];
+            for(index = 0; index < 6; index++) {
+                currentTitle = data["Similar"].Results[index].Name;
+                fetchMovieInformation(function(d) {
+                    movieArray.push(d);
+                });
+            }
+            buildTemplate(movieArray,bookArray);
+
+        });
 
     });
-
-});
 
     function buildTemplate(movieArray,bookArray){
         var output = $("#output");    
         var template = $("#test2").html();
 
 
-            var data = {
+        var data = {
             books: [
             {   nameOfBook_home: bookArray[0].best_book.title,
                 nameOfBook_holiday: bookArray[1].best_book.title,
@@ -54,21 +54,21 @@ $(document).ready(function () {
                 authorOfBook_history: bookArray[5].best_book.author.name,
 
                 DateOfBook_home: bookArray[0].original_publication_year.__text,
-               	DateOfBook_holiday: bookArray[1].original_publication_year.__text,
+                DateOfBook_holiday: bookArray[1].original_publication_year.__text,
                 DateOfBook_adventure: bookArray[2].original_publication_year.__text,
                 DateOfBook_advance: bookArray[3].original_publication_year.__text,
                 DateOfBook_crime: bookArray[4].original_publication_year.__text,
                 DateOfBook_history: bookArray[5].original_publication_year.__text,
 
                 reviewsOfBook_home: bookArray[0].ratings_count.__text,
-               	reviewsOfBook_holiday: bookArray[0].ratings_count.__text,
+                reviewsOfBook_holiday: bookArray[0].ratings_count.__text,
                 reviewsOfBook_adventure: bookArray[0].ratings_count.__text,
                 reviewsOfBook_advance: bookArray[0].ratings_count.__text,
                 reviewsOfBook_crime: bookArray[0].ratings_count.__text,
                 reviewsOfBook_history: bookArray[0].ratings_count.__text,
 
                 ratingOfBook_home: bookArray[0].average_rating,
-               	ratingOfBook_holiday: bookArray[1].average_rating,
+                ratingOfBook_holiday: bookArray[1].average_rating,
                 ratingOfBook_adventure: bookArray[2].average_rating,
                 ratingOfBook_advance: bookArray[3].average_rating,
                 ratingOfBook_crime: bookArray[4].average_rating,
@@ -139,8 +139,8 @@ $(document).ready(function () {
             }
             ]};
 
-        html = Mustache.render(template, data);
-        output.append(html);
+            html = Mustache.render(template, data);
+            output.append(html);
 
-    }
-});
+        }
+    });
