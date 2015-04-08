@@ -1,12 +1,4 @@
-
-var query = "Reservoir Dogs";
-var likes = {};
-var titleBook = "";
-var movieName="Reservoir Dogs";
-var moviename ="";
-var movieTitle=[];
-var XML;
-
+var query = prompt("Give name of like", "Harry Potter");
 
 function fetchMovieRecommendations(callback) {
     var baseUrl = "http://www.tastekid.com/api/";
