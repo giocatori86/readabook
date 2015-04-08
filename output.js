@@ -2,16 +2,15 @@ $(document).ready(function () {
     fetchBookRecommendations(function(da) {
         bookArray = [];
         var x2js = new X2JS();
-         for(index = 0; index < 6; index++) {
+         for(index = 0; index < 7; index++) {
             currentTitle = da["Similar"].Results[index].Name;
             fetchBookInformation(function(da) {
             var jsonObj = x2js.xml2json(da);
-            bookArray.push(jsonObj);
+            bookArray.push(jsonObj["query"].results.GoodreadsResponse.search.results.work[0]);
            
             });
         }
         
-
     fetchMovieRecommendations(function(data) {
         movieArray = [];
         for(index = 0; index < 6; index++) {
@@ -21,7 +20,7 @@ $(document).ready(function () {
             });
         }
         buildTemplate(movieArray,bookArray);
-        console.log(bookArray);
+
     });
 
 });
@@ -33,54 +32,54 @@ $(document).ready(function () {
 
             var data = {
             books: [
-            {   nameOfBook_home:"Christophe",
-                nameOfBook_holiday: "Christophe",
-                nameOfBook_adventure: "Christophe",
-                nameOfBook_advance: "Christophe",
-                nameOfBook_crime: "Christophe",
-                nameOfBook_history: "Christophe",
+            {   nameOfBook_home: bookArray[0].best_book.title,
+                nameOfBook_holiday: bookArray[1].best_book.title,
+                nameOfBook_adventure: bookArray[2].best_book.title,
+                nameOfBook_advance: bookArray[3].best_book.title,
+                nameOfBook_crime: bookArray[4].best_book.title,
+                nameOfBook_history: bookArray[5].best_book.title,
 
-                explanationOfBook_home:"Christophe",
-                explanationOfBook_holiday: "Christophe",
-                explanationOfBook_adventure: "Christophe",
-                explanationOfBook_advance: "Christophe",
-                explanationOfBook_crime: "Christophe",
-                explanationOfBook_history: "Christophe",
+                explanationOfBook_home:"Not Available",
+                explanationOfBook_holiday: "Not Available",
+                explanationOfBook_adventure: "Not Available",
+                explanationOfBook_advance: "Not Available",
+                explanationOfBook_crime: "Not Available",
+                explanationOfBook_history: "Not Available",
 
-                authorOfBook_home: "Christophe",
-                authorOfBook_holiday: "Christophe",
-                authorOfBook_adventure: "Christophe",
-                authorOfBook_advance: "Christophe",
-                authorOfBook_crime: "Christophe",
-                authorOfBook_history: "Christophe",
+                authorOfBook_home: bookArray[0].best_book.author.name,
+                authorOfBook_holiday: bookArray[1].best_book.author.name,
+                authorOfBook_adventure: bookArray[2].best_book.author.name,
+                authorOfBook_advance: bookArray[3].best_book.author.name,
+                authorOfBook_crime: bookArray[4].best_book.author.name,
+                authorOfBook_history: bookArray[5].best_book.author.name,
 
-                DateOfBook_home: "Christophe",
-               	DateOfBook_holiday: "Christophe",
-                DateOfBook_adventure: "Christophe",
-                DateOfBook_advance: "Christophe",
-                DateOfBook_crime: "Christophe",
-                DateOfBook_history: "Christophe",
+                DateOfBook_home: bookArray[0].original_publication_year.__text,
+               	DateOfBook_holiday: bookArray[1].original_publication_year.__text,
+                DateOfBook_adventure: bookArray[2].original_publication_year.__text,
+                DateOfBook_advance: bookArray[3].original_publication_year.__text,
+                DateOfBook_crime: bookArray[4].original_publication_year.__text,
+                DateOfBook_history: bookArray[5].original_publication_year.__text,
 
-                themeOfBook_home: "Christophe",
-               	themeOfBook_holiday: "Christophe",
-                themeOfBook_adventure: "Christophe",
-                themeOfBook_advance: "Christophe",
-                themeOfBook_crime: "Christophe",
-                themeOfBook_history: "Christophe",
+                reviewsOfBook_home: bookArray[0].ratings_count.__text,
+               	reviewsOfBook_holiday: bookArray[0].ratings_count.__text,
+                reviewsOfBook_adventure: bookArray[0].ratings_count.__text,
+                reviewsOfBook_advance: bookArray[0].ratings_count.__text,
+                reviewsOfBook_crime: bookArray[0].ratings_count.__text,
+                reviewsOfBook_history: bookArray[0].ratings_count.__text,
 
-                ratingOfBook_home: "Christophe",
-               	ratingOfBook_holiday: "Christophe",
-                ratingOfBook_adventure: "Christophe",
-                ratingOfBook_advance: "Christophe",
-                ratingOfBook_crime: "Christophe",
-                ratingOfBook_history: "Christophe",
+                ratingOfBook_home: bookArray[0].average_rating,
+               	ratingOfBook_holiday: bookArray[1].average_rating,
+                ratingOfBook_adventure: bookArray[2].average_rating,
+                ratingOfBook_advance: bookArray[3].average_rating,
+                ratingOfBook_crime: bookArray[4].average_rating,
+                ratingOfBook_history: bookArray[5].average_rating,
 
-                posterOfBook_home: "Christophe",
-                posterOfBook_holiday: "Christophe",
-                posterOfBook_adventure: "Christophe",
-                posterOfBook_advance: "Christophe",
-                posterOfBook_crime: "Christophe",
-                posterOfBook_history: "Christophe",
+                posterOfBook_home: bookArray[0].best_book.image_url,
+                posterOfBook_holiday: bookArray[1].best_book.image_url,
+                posterOfBook_adventure: bookArray[2].best_book.image_url,
+                posterOfBook_advance: bookArray[3].best_book.image_url,
+                posterOfBook_crime: bookArray[4].best_book.image_url,
+                posterOfBook_history: bookArray[5].best_book.image_url,
 
                 nameOfMovie_home:movieArray[0].Title,
                 nameOfMovie_holiday: movieArray[1].Title,
