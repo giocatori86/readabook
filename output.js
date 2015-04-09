@@ -1,4 +1,25 @@
 $(document).ready(function () {
+
+jQuery.ajaxSetup({async:false});
+
+   bootbox.prompt({
+  title: "Give in a like of a book or movie",
+  value: "Harry Potter",
+  callback: function(result) {
+    if (result === null) {
+      bootstrap.alert("Prompt dismissed");
+    } else {
+        query = result;
+      fetchInformation();
+    }
+  }
+});
+
+
+
+
+    function fetchInformation() {
+
     fetchBookRecommendations(function(da) {
         bookArray = [];
         movieArray = [];
@@ -9,12 +30,10 @@ $(document).ready(function () {
             fetchBookInformation(function(data) {
                 jsonObj = x2js.xml2json(data);
                 bookArray.push(jsonObj["query"].results.GoodreadsResponse.search.results.work[0]);
-
             });
         }
-    
+        
         fetchMovieRecommendations(function(data) {
-            
             for(index = 0; index < 6; index++) {
                 currentTitle = data["Similar"].Results[index].Name;
                 fetchMovieInformation(function(d) {
@@ -27,6 +46,7 @@ $(document).ready(function () {
 
     });
 
+}
     function buildTemplate(movieArray,bookArray){
         var output = $("#output");    
         var template = $("#test2").html();
