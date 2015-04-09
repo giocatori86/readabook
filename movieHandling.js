@@ -3,18 +3,6 @@ jQuery.ajaxSetup({async:false});
 
 var query = "Harry Potter";
 
-bootbox.prompt({
-  title: "What is the name of the like?",
-  value: "Harry Potter",
-  callback: function(result) {
-    if (result === null) {
-      Example.show("Prompt dismissed");
-    } else {
-      Example.show("The given like is called <b>"+result+"</b>");
-      query = result;
-    }
-  }
-});
 
 function fetchMovieRecommendations(callback) {
 	var baseUrl = "http://www.tastekid.com/api/";
