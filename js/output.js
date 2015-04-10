@@ -2,18 +2,32 @@ $(document).ready(function () {
 
     jQuery.ajaxSetup({async:false});
 
-    bootbox.prompt({
+    bootbox.dialog({
+      message: '<div class="row">  ' +
+      '<div class="col-md-12"> ' +
+      '<form class="form-horizontal"> ' +
+      '<div class="form-group"> ' +
+      '<label class="col-md-4 control-label" for="name"></label> ' +
+      '<div class="col-md-4"> ' +
+      '<input id="name" name="name" type="text" placeholder="Type in your like" class="form-control input-md"> ' +
+      '<span class="help-block">For example Harry Potter</span> </div> ' +
+      '</div> ' +
+      '</div>',
       title: "Give in a like of a book or movie",
-      value: "Harry Potter",
-      callback: function(result) {
-        if (result === null) {
-          bootstrap.alert("Prompt dismissed");
-      } else {
-        query = result;
-        waitingDialog.show('Fetching Book Recommendations');
-        fetchInformation();
+      size :"large",
+      closeButton:"false",
+      onEscape:"false",
+      buttons: {
+        confirm: {
+            label: "Search",
+            callback:function() {
+                query = $('#name').val();
+                waitingDialog.show('Fetching Book Recommendations');
+                fetchInformation();
+            }
+        }
+
     }
-}
 });
 
     function fetchInformation() {
@@ -33,8 +47,8 @@ $(document).ready(function () {
             }
 
             fetchMovieRecommendations(function(data) {
-               waitingDialog.show('Fetching Movie Details');
-               for(index = 0; index < 6; index++) {
+             waitingDialog.show('Fetching Movie Details');
+             for(index = 0; index < 6; index++) {
                 currentTitle = data["Similar"].Results[index].Name;
                 fetchMovieInformation(function(d) {
                     movieArray.push(d);
