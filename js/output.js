@@ -13,7 +13,7 @@ $(document).ready(function () {
       '<span class="help-block">For example Harry Potter</span> </div> ' +
       '</div> ' +
       '</div>',
-      title: "Give in a like of a book or movie",
+      title: "Provide a like of a book or movie",
       size :"large",
       closeButton:"false",
       onEscape:"false",
